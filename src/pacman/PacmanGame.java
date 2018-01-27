@@ -3,6 +3,14 @@ package pacman;
 import java.awt.Dimension;
 import java.awt.geom.Point2D;
 
+import pacman.actors.Background;
+import pacman.actors.Food;
+import pacman.actors.Initializer;
+import pacman.actors.WelcomeMessage;
+import pacman.actors.Pacman;
+import pacman.actors.PowerBall;
+import pacman.actors.Ready;
+import pacman.actors.Title;
 import pacman.view.Actor;
 import pacman.view.Game;
 
@@ -50,7 +58,7 @@ public class PacmanGame extends Game {
     
     public static enum State {
     	INITIALIZING, 
-    	OL_PRESENTS, 
+    	WELCOME_MESSAGE, 
     	TITLE, 
     	READY,
     	READY2, 
@@ -66,6 +74,7 @@ public class PacmanGame extends Game {
     public int score;
     public int highscore;
     
+//    public Ghost catchedGhost;
     public int currentCatchedGhostScoreTableIndex = 0;
     public final int[] catchedGhostScoreTable = {200, 400, 800, 1600};
     public int foodCount;
@@ -114,6 +123,37 @@ public class PacmanGame extends Game {
     
     private void addAllObjs() {
     	
+        Pacman pacman = new Pacman(this);
+        actors.add(new Initializer(this));
+        actors.add(new WelcomeMessage(this));
+        actors.add(new Title(this));
+        actors.add(new Background(this));
+        foodCount = 0;
+        
+        for (int row = 0; row < 31; row++) {
+            for (int col = 0; col < 36; col++) {
+                if (maze[row][col] == 1) 
+                    maze[row][col] = -1; // wall convert to -1 for ShortestPathFinder
+                else if (maze[row][col] == 2) {
+                    maze[row][col] = 0;
+                    actors.add(new Food(this, col, row));
+                    foodCount++;
+                }
+                else if (maze[row][col] == 3) {
+                    maze[row][col] = 0;
+                    actors.add(new PowerBall(this, col, row));
+                }
+            }
+        }
+        
+//        for (int i = 0; i < 4; i++) 
+//            actors.add(new Ghost(this, pacman, i));
+//        
+        actors.add(pacman);
+//        actors.add(new Point(this, pacman));
+        actors.add(new Ready(this));
+//        actors.add(new GameOver(this));
+//        actors.add(new HUD(this));
     }
     
     private void initAllObjs() {
@@ -137,6 +177,11 @@ public class PacmanGame extends Game {
         currentCatchedGhostScoreTableIndex = 0;
         broadcastMessage("startGhostVulnerableMode");
     }
+    
+//    public void ghostCatched(Ghost ghost) {
+//        catchedGhost = ghost;
+//        setState(State.GHOST_CATCHED);
+//    }
     
     public void nextLife() {
         lives--;
