@@ -5,7 +5,7 @@ import java.awt.event.KeyEvent;
 
 import pacman.PacmanActor;
 import pacman.PacmanGame;
-import pacman.PacmanGame.State;
+import pacman.enums.State;
 import pacman.view.Keyboard;
 
 /**
@@ -223,7 +223,7 @@ public class Pacman extends PacmanActor {
     
     @Override
     public void stateChanged() {
-        if (game.getState() == PacmanGame.State.TITLE) {
+        if (game.getState() == State.TITLE) {
             x = -100;
             y = 200;
             instructionPointer = 0;

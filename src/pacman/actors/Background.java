@@ -5,7 +5,7 @@ import java.awt.Graphics2D;
 
 import pacman.PacmanActor;
 import pacman.PacmanGame;
-import pacman.PacmanGame.State;
+import pacman.enums.State;
 
 /**
  * 28 x 31 cells

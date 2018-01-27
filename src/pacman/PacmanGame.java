@@ -10,6 +10,7 @@ import pacman.actors.Ghost;
 import pacman.actors.HUD;
 import pacman.actors.Initializer;
 import pacman.actors.WelcomeMessage;
+import pacman.enums.State;
 import pacman.actors.Pacman;
 import pacman.actors.Point;
 import pacman.actors.PowerBall;
@@ -25,7 +26,7 @@ public class PacmanGame extends Game {
 
 	// maze[row][col] 
     // 36 x 31 
-    // cols: 0-3| 4-31 | 32-35
+    // cols: 0-3 | 4-31 | 32-35
     public int maze[][] = {
         {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
         {1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1},
@@ -59,19 +60,6 @@ public class PacmanGame extends Game {
         {1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1},
         {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
     };
-    
-    public static enum State {
-    	INITIALIZING, 
-    	WELCOME_MESSAGE, 
-    	TITLE, 
-    	READY,
-    	READY2, 
-    	PLAYING, 
-    	PACMAN_DIED,
-    	GHOST_CATCHED, 
-    	LEVEL_CLEARED,
-    	GAME_OVER
-    }
     
     public State state = State.INITIALIZING;
     public int lives = 3;

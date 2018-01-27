@@ -2,7 +2,8 @@ package pacman.actors;
 
 import pacman.PacmanActor;
 import pacman.PacmanGame;
-import pacman.PacmanGame.State;
+import pacman.enums.Mode;
+import pacman.enums.State;
 import pacman.view.ShortestPathFinder;
 
 import java.awt.Point;
@@ -20,22 +21,14 @@ public class Ghost extends PacmanActor {
     public int cageUpDownCount;
     public Point[] initialPositions = {new Point(18, 11), new Point(16, 14), 
     								   new Point(18, 14), new Point(20, 14)};
-    public static enum Mode { 
-    	CAGE, 
-    	NORMAL,
-    	VULNERABLE,
-    	DIED 
-    }
-
-    public Mode mode = Mode.CAGE;
-    
     public int dx;
     public int dy;
     public int col;
     public int row;
     public int direction = 0;
     public int lastDirection;
-    
+
+    public Mode mode = Mode.CAGE;
     public List<Integer> desiredDirections = new ArrayList<Integer>();
     public int desiredDirection;
     public static final int[] backwardDirections = {2, 3, 0, 1};
@@ -494,24 +487,24 @@ public class Ghost extends PacmanActor {
     
     @Override
     public void stateChanged() {
-        if (game.getState() == PacmanGame.State.TITLE) {
+        if (game.getState() == State.TITLE) {
             updateTitle();
             visible = true;
         }
-        else if (game.getState() == PacmanGame.State.READY) 
+        else if (game.getState() == State.READY) 
             visible = false;
-        else if (game.getState() == PacmanGame.State.READY2) {
+        else if (game.getState() == State.READY2) {
             setMode(Mode.CAGE);
             updateAnimation();
             Point initialPosition = initialPositions[type];
             updatePosition(initialPosition.x, initialPosition.y); // col, row
             x -= 4;
         }
-        else if (game.getState() == PacmanGame.State.PLAYING && mode != Mode.CAGE) 
+        else if (game.getState() == State.PLAYING && mode != Mode.CAGE) 
             instructionPointer = 0;
-        else if (game.getState() == PacmanGame.State.PACMAN_DIED) 
+        else if (game.getState() == State.PACMAN_DIED) 
             instructionPointer = 0;
-        else if (game.getState() == PacmanGame.State.LEVEL_CLEARED) 
+        else if (game.getState() == State.LEVEL_CLEARED) 
             instructionPointer = 0;
     }
     

@@ -2,7 +2,7 @@ package pacman.actors;
 
 import pacman.PacmanActor;
 import pacman.PacmanGame;
-import pacman.PacmanGame.State;
+import pacman.enums.State;
 
 /**
  * @author dzimiks
@@ -66,8 +66,8 @@ public class Ready extends PacmanActor {
         
     	visible = false;
         
-        if (game.getState() == PacmanGame.State.READY ||
-            game.getState() == PacmanGame.State.READY2) {
+        if (game.getState() == State.READY ||
+            game.getState() == State.READY2) {
             visible = true;
             instructionPointer = 0;
         }

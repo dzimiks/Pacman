@@ -5,7 +5,7 @@ import java.awt.event.KeyEvent;
 
 import pacman.PacmanActor;
 import pacman.PacmanGame;
-import pacman.PacmanGame.State;
+import pacman.enums.State;
 import pacman.view.Keyboard;
 
 /**

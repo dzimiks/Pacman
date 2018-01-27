@@ -4,7 +4,7 @@ import java.awt.Rectangle;
 
 import pacman.PacmanActor;
 import pacman.PacmanGame;
-import pacman.PacmanGame.State;
+import pacman.enums.State;
 
 /**
  * Point that is showed when ghost is captured by pacman. 

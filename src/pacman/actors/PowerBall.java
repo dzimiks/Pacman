@@ -4,7 +4,7 @@ import java.awt.Rectangle;
 
 import pacman.PacmanActor;
 import pacman.PacmanGame;
-import pacman.PacmanGame.State;
+import pacman.enums.State;
 
 /**
  * @author dzimiks
@@ -47,12 +47,12 @@ public class PowerBall extends PacmanActor {
     
     @Override
     public void stateChanged() {
-        if (game.getState() == PacmanGame.State.TITLE ||
+        if (game.getState() == State.TITLE ||
             game.getState() == State.LEVEL_CLEARED ||
             game.getState() == State.GAME_OVER) {
             eated = true;
         }
-        else if (game.getState() == PacmanGame.State.READY) {
+        else if (game.getState() == State.READY) {
             eated = false;
             visible = true;
         }

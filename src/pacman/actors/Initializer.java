@@ -2,7 +2,7 @@ package pacman.actors;
 
 import pacman.PacmanActor;
 import pacman.PacmanGame;
-import pacman.PacmanGame.State;
+import pacman.enums.State;
 
 /**
  * @author dzimiks
