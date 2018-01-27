@@ -74,8 +74,7 @@ public class Title extends PacmanActor {
         if (pushSpaceToStartVisible) 
             game.drawText(g, "PUSH SPACE TO START", 37, 170);
         
-        game.drawText(g, "PROGRAMMED BY DZIMIKS 2018", 20, 240);
-//        game.drawText(g, "ORIGINAL GAME BY NAMCO 1980", 5, 255);
+        game.drawText(g, "PROGRAMMED BY DZIMIKS 2018", 7, 255);
     }
 
     @Override

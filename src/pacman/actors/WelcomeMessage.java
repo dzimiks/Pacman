@@ -63,7 +63,7 @@ public class WelcomeMessage extends PacmanActor {
         if (!visible) 
             return;
         
-        game.drawText(g, text.substring(0, textIndex), 60, 130);
+        game.drawText(g, text.substring(0, textIndex), 50, 130);
     }
 
     

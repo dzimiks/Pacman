@@ -28,6 +28,7 @@ public class Main {
                 frame.getContentPane().add(view);
                 frame.pack();
                 frame.setLocationRelativeTo(null);
+                frame.setResizable(false);
                 frame.setVisible(true);
                 view.requestFocus();
                 view.start();

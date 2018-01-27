@@ -5,9 +5,13 @@ import java.awt.geom.Point2D;
 
 import pacman.actors.Background;
 import pacman.actors.Food;
+import pacman.actors.GameOver;
+import pacman.actors.Ghost;
+import pacman.actors.HUD;
 import pacman.actors.Initializer;
 import pacman.actors.WelcomeMessage;
 import pacman.actors.Pacman;
+import pacman.actors.Point;
 import pacman.actors.PowerBall;
 import pacman.actors.Ready;
 import pacman.actors.Title;
@@ -74,7 +78,7 @@ public class PacmanGame extends Game {
     public int score;
     public int highscore;
     
-//    public Ghost catchedGhost;
+    public Ghost catchedGhost;
     public int currentCatchedGhostScoreTableIndex = 0;
     public final int[] catchedGhostScoreTable = {200, 400, 800, 1600};
     public int foodCount;
@@ -148,12 +152,12 @@ public class PacmanGame extends Game {
         
 //        for (int i = 0; i < 4; i++) 
 //            actors.add(new Ghost(this, pacman, i));
-//        
+        
         actors.add(pacman);
-//        actors.add(new Point(this, pacman));
+        actors.add(new Point(this, pacman));
         actors.add(new Ready(this));
-//        actors.add(new GameOver(this));
-//        actors.add(new HUD(this));
+        actors.add(new GameOver(this));
+        actors.add(new HUD(this));
     }
     
     private void initAllObjs() {
@@ -178,10 +182,10 @@ public class PacmanGame extends Game {
         broadcastMessage("startGhostVulnerableMode");
     }
     
-//    public void ghostCatched(Ghost ghost) {
-//        catchedGhost = ghost;
-//        setState(State.GHOST_CATCHED);
-//    }
+    public void ghostCatched(Ghost ghost) {
+        catchedGhost = ghost;
+        setState(State.GHOST_CATCHED);
+    }
     
     public void nextLife() {
         lives--;
