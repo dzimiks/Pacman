@@ -8,6 +8,9 @@ import pacman.PacmanGame;
 import pacman.PacmanGame.State;
 import pacman.view.Keyboard;
 
+/**
+ * @author dzimiks
+ */
 public class Title extends PacmanActor {
 
 	private boolean pushSpaceToStartVisible;

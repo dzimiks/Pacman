@@ -1,5 +1,8 @@
 package main;
 
+import java.net.URL;
+
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
@@ -22,8 +25,11 @@ public class Main {
                 Game game = new PacmanGame();
                 Display view = new Display(game);
                 JFrame frame = new JFrame();
-                
-                frame.setTitle("Pacman");
+            	URL iconURL = getClass().getResource("/res/pacman_0_1.png");
+            	ImageIcon icon = new ImageIcon(iconURL);
+
+            	frame.setIconImage(icon.getImage());
+                frame.setTitle("Pacman 2018");
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.getContentPane().add(view);
                 frame.pack();

@@ -57,7 +57,7 @@ public class Game {
 					method.invoke(actor);
 			}
 			catch (Exception ex) {
-				ex.printStackTrace();
+//				ex.printStackTrace();
 			}
 		}
 	}

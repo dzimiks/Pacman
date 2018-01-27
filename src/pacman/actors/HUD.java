@@ -27,7 +27,7 @@ public class HUD extends PacmanActor {
         
         game.drawText(g, "SCORE", 10, 1);
         game.drawText(g, game.getScore(), 10, 10);
-        game.drawText(g, "HIGH SCORE ", 78, 1);
+        game.drawText(g, "HIGH SCORE ", 90, 1);
         game.drawText(g, game.getHiscore(), 90, 10);
         game.drawText(g, "LIVES: ", 10, 274);
         

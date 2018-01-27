@@ -39,13 +39,12 @@ public class Food extends PacmanActor {
             visible = false;
             game.currentFoodCount--;
             game.addScore(10);
-            System.out.println("Current food count: " + game.currentFoodCount);
+//            System.out.println("Current food count: " + game.currentFoodCount);
         }
     }
 
     @Override
     public void draw(Graphics2D g) {
-        
     	if (!visible) 
             return;
         

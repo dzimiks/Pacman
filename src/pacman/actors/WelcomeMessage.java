@@ -59,7 +59,6 @@ public class WelcomeMessage extends PacmanActor {
 
     @Override
     public void draw(Graphics2D g) {
-    	
         if (!visible) 
             return;
         

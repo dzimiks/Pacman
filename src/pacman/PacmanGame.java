@@ -150,8 +150,9 @@ public class PacmanGame extends Game {
             }
         }
         
-//        for (int i = 0; i < 4; i++) 
-//            actors.add(new Ghost(this, pacman, i));
+        // max: 4
+        for (int i = 0; i < 4; i++) 
+            actors.add(new Ghost(this, pacman, i));
         
         actors.add(pacman);
         actors.add(new Point(this, pacman));
